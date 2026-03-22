@@ -802,9 +802,6 @@ function qtShowHito(idx){
     /* progress bar */
     qtStart=Date.now();
     animQtProgress();
-
-    /* auto advance */
-    qtTimer=setTimeout(()=>qtShowHito(idx+1), qtDuration);
   },400);
 }
 
@@ -823,8 +820,8 @@ function animQtProgress(){
 
 document.getElementById('qt-skip').addEventListener('click',()=>{clearTimeout(qtTimer);qtShowHito(qtIdx+1)});
 document.getElementById('qt-exit-tour').addEventListener('click',()=>{clearTimeout(qtTimer);qtVid.pause();qtVid.src='';flash(()=>showScene('s3',true))});
-/* cuando termina el video avanza solo al siguiente hito */
-qtVid.addEventListener('ended',()=>{clearTimeout(qtTimer);qtShowHito(qtIdx+1)});
+/* cuando termina el video avanza solo al siguiente hito — cancela el timer para no duplicar */
+qtVid.addEventListener('ended',()=>{clearTimeout(qtTimer);qtTimer=null;qtShowHito(qtIdx+1)});
 
 /* ══ SELECTED TOPICS — slide based ══ */
 const stVid=document.getElementById('st-video');
