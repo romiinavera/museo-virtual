@@ -163,6 +163,15 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Crimson Pro',Georg
 .st-h-ins{font-size:clamp(11px,1.3vw,13px);font-style:italic;color:var(--faint);border-left:2px solid var(--p);padding:8px 14px;line-height:1.7;background:rgba(0,0,0,.28)}
 .st-h-ins strong{color:var(--dim);font-style:normal}
 
+/* reveal por pasos */
+.st-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.st-reveal.shown{opacity:1;transform:translateY(0);pointer-events:auto}
+/* insight destello en paso 3 */
+@keyframes insightpulse{0%{border-color:var(--p);box-shadow:0 0 0 0 var(--glow)}50%{border-color:var(--p);box-shadow:0 0 28px 8px var(--glow)}100%{border-color:var(--p);box-shadow:0 0 8px 2px var(--glow)}}
+.st-h-ins.pulse{animation:insightpulse .8s ease forwards}
+/* hint de sub-paso */
+.st-subhint{position:absolute;bottom:clamp(58px,9vh,80px);left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:clamp(7px,1vw,9px);letter-spacing:.22em;text-transform:uppercase;color:var(--faint);opacity:0;transition:opacity .4s;white-space:nowrap;z-index:6;pointer-events:none}
+.st-subhint.vis{opacity:1}
 /* flechas visuales S3 */
 .st-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:15;
   width:clamp(44px,6vw,62px);height:clamp(44px,6vw,62px);
@@ -488,19 +497,23 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Crimson Pro',Georg
       <div class="st-ts-hint">Avanzar con flecha</div>
     </div>
 
-    <!-- hito slide (steps 1–6) -->
+    <!-- hito slide (steps 1–6, 3 sub-pasos cada uno) -->
     <div class="st-hito-slide hidden" id="st-hito-slide">
       <div class="st-h-step" id="st-h-step">01 / 06</div>
+      <!-- paso 1: era + año + título -->
       <div class="st-h-era" id="st-h-era">🏺 Antigüedad</div>
       <div class="st-h-yr" id="st-h-yr">~3500 a.C.</div>
       <div class="st-h-name" id="st-h-name">La Rueda</div>
-      <p class="st-h-body" id="st-h-body"></p>
-      <div class="st-h-ins" id="st-h-ins"></div>
+      <!-- paso 2: descripción -->
+      <p class="st-h-body st-reveal" id="st-h-body"></p>
+      <!-- paso 3: insight con efecto -->
+      <div class="st-h-ins st-reveal" id="st-h-ins"></div>
     </div>
 
     <!-- flechas visuales clickeables -->
     <button class="st-arrow st-arrow-left" id="st-arrow-left">‹</button>
     <button class="st-arrow st-arrow-right" id="st-arrow-right">›</button>
+    <div class="st-subhint" id="st-subhint">→ continuar</div>
 
     <!-- top bar -->
     <div class="st-topbar">
@@ -818,9 +831,12 @@ function buildSelectedList(){
 }
 
 function stEnter(){
-  stStep=0; stVidIdx=0;
+  stStep=0; stVidIdx=0; stSubStep=0;
   stVid.pause(); stVid.src='';
   stVid.removeAttribute('loop');
+  document.getElementById('st-h-body').classList.remove('shown');
+  document.getElementById('st-h-ins').classList.remove('shown','pulse');
+  document.getElementById('st-subhint').classList.remove('vis');
   document.getElementById('st-title-slide').classList.remove('hide');
   document.getElementById('st-hito-slide').classList.add('hidden');
   document.getElementById('st-controls').classList.add('hidden');
@@ -838,19 +854,28 @@ function stPlayCurrentVid(){
   document.getElementById('st-play-lbl').textContent='Pausar';
 }
 
+/* subStep ya no se usa — todo aparece en cascada automática */
+let stSubStep=0;
+
+function stShowSubStep(sub){ stSubStep=sub; stUpdateArrows(); }
+
 function stNext(){
   if(stStep>=SELECTED.length){
     stVid.pause(); stVid.src='';
     flash(()=>showScene('s7',true));
     return;
   }
-  stStep++; stVidIdx=0;
+  stStep++; stVidIdx=0; stSubStep=2;
   const s=SELECTED[stStep-1];
   setTheme(s.era);
 
   document.getElementById('st-title-slide').classList.add('hide');
   document.getElementById('st-hito-slide').classList.add('hide');
   document.getElementById('st-hito-slide').classList.remove('hidden');
+  // resetear reveals
+  document.getElementById('st-h-body').classList.remove('shown');
+  document.getElementById('st-h-ins').classList.remove('shown','pulse');
+  document.getElementById('st-subhint').classList.remove('vis');
 
   setTimeout(()=>{
     document.getElementById('st-h-step').textContent=String(stStep).padStart(2,'0')+' / '+String(SELECTED.length).padStart(2,'0');
@@ -862,21 +887,33 @@ function stNext(){
     document.getElementById('st-cur').textContent=stStep;
     document.getElementById('st-hito-slide').classList.remove('hide');
     document.getElementById('st-controls').classList.remove('hidden');
+    // cascada automática: título ya visible, body a 400ms, insight a 900ms
+    setTimeout(()=>document.getElementById('st-h-body').classList.add('shown'), 400);
+    setTimeout(()=>{
+      const ins=document.getElementById('st-h-ins');
+      ins.classList.add('shown');
+      ins.classList.remove('pulse');
+      void ins.offsetWidth;
+      ins.classList.add('pulse');
+    }, 900);
     stPlayCurrentVid();
+    stUpdateArrows();
   },320);
 }
 
 function stPrev(){
   if(stStep<=1){
-    stStep=0; stVidIdx=0;
+    stStep=0; stVidIdx=0; stSubStep=0;
     stVid.pause(); stVid.src='';
     document.getElementById('st-hito-slide').classList.add('hide');
     document.getElementById('st-controls').classList.add('hidden');
+    document.getElementById('st-subhint').classList.remove('vis');
     setTimeout(()=>{
       document.getElementById('st-hito-slide').classList.add('hidden');
       document.getElementById('st-title-slide').classList.remove('hide');
     },320);
     document.getElementById('st-cur').textContent='0';
+    stUpdateArrows();
     return;
   }
   stStep-=2;
@@ -887,7 +924,7 @@ function stPrev(){
 const stArrL=document.getElementById('st-arrow-left');
 const stArrR=document.getElementById('st-arrow-right');
 function stUpdateArrows(){
-  stArrL.classList.toggle('dim', stStep===0);
+  stArrL.classList.toggle('dim', stStep===0 && stSubStep===0);
   stArrR.classList.toggle('dim', false);
 }
 stArrL.addEventListener('click',()=>{stPrev();stUpdateArrows()});
