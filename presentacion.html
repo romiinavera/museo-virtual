@@ -163,6 +163,18 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Crimson Pro',Georg
 .st-h-ins{font-size:clamp(11px,1.3vw,13px);font-style:italic;color:var(--faint);border-left:2px solid var(--p);padding:8px 14px;line-height:1.7;background:rgba(0,0,0,.28)}
 .st-h-ins strong{color:var(--dim);font-style:normal}
 
+/* flechas visuales S3 */
+.st-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:15;
+  width:clamp(44px,6vw,62px);height:clamp(44px,6vw,62px);
+  border-radius:50%;border:1px solid rgba(255,255,255,.15);
+  background:rgba(0,0,0,.5);backdrop-filter:blur(6px);
+  color:var(--text);font-size:clamp(20px,3vw,30px);
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;transition:border-color .3s,color .3s,box-shadow .3s,transform .3s}
+.st-arrow:hover{border-color:var(--p);color:var(--p);box-shadow:0 0 20px var(--glow);transform:translateY(-50%) scale(1.1)}
+.st-arrow-left{left:clamp(10px,2vw,22px)}
+.st-arrow-right{right:clamp(10px,2vw,22px)}
+.st-arrow.dim{opacity:.25;pointer-events:none}
 /* top bar */
 .st-topbar{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
   padding:clamp(10px,2vh,18px) clamp(12px,2.5vw,22px);
@@ -486,6 +498,10 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Crimson Pro',Georg
       <div class="st-h-ins" id="st-h-ins"></div>
     </div>
 
+    <!-- flechas visuales clickeables -->
+    <button class="st-arrow st-arrow-left" id="st-arrow-left">‹</button>
+    <button class="st-arrow st-arrow-right" id="st-arrow-right">›</button>
+
     <!-- top bar -->
     <div class="st-topbar">
       <button class="st-back" id="st-back">← Volver</button>
@@ -631,14 +647,14 @@ const ERAS=[
 const ALL_HITOS=[];
 ERAS.forEach(e=>e.hitos.forEach(h=>ALL_HITOS.push({...h,era:e})));
 
-/* Selected topics: La Rueda, Al-Juarismi, Copérnico, Máquina de Vapor, ENIAC, IA Generativa */
+/* Selected topics con playlist de videos: video base + video1-1, 1-2, 1-3 en loop */
 const SELECTED=[
-  {hito:ERAS[0].hitos[0], era:ERAS[0]},
-  {hito:ERAS[1].hitos[0], era:ERAS[1]},
-  {hito:ERAS[2].hitos[0], era:ERAS[2]},
-  {hito:ERAS[3].hitos[0], era:ERAS[3]},
-  {hito:ERAS[4].hitos[0], era:ERAS[4]},
-  {hito:ERAS[4].hitos[2], era:ERAS[4]},
+  {hito:ERAS[0].hitos[0], era:ERAS[0],  videos:['video/video1.mp4','video/video1-1.mp4','video/video1-2.mp4','video/video1-3.mp4']},
+  {hito:ERAS[1].hitos[0], era:ERAS[1],  videos:['video/video4.mp4','video/video4-1.mp4','video/video4-2.mp4','video/video4-3.mp4']},
+  {hito:ERAS[2].hitos[0], era:ERAS[2],  videos:['video/video6.mp4','video/video6-1.mp4','video/video6-2.mp4','video/video6-3.mp4']},
+  {hito:ERAS[3].hitos[0], era:ERAS[3],  videos:['video/video8.mp4','video/video8-1.mp4','video/video8-2.mp4','video/video8-3.mp4']},
+  {hito:ERAS[4].hitos[0], era:ERAS[4],  videos:['video/video11.mp4','video/video11-1.mp4','video/video11-2.mp4','video/video11-3.mp4']},
+  {hito:ERAS[4].hitos[2], era:ERAS[4],  videos:['video/video13.mp4','video/video13-1.mp4','video/video13-2.mp4','video/video13-3.mp4']},
 ];
 
 const TL_ALL=[
@@ -811,36 +827,44 @@ document.getElementById('qt-exit-tour').addEventListener('click',()=>{clearTimeo
 /* ══ SELECTED TOPICS — slide based ══ */
 const stVid=document.getElementById('st-video');
 let stStep=0; // 0 = title, 1..6 = hito
+let stVidIdx=0; // índice dentro de la playlist del tema actual
 
 function buildSelectedList(){
   // nothing to build — slides are dynamic
 }
 
 function stEnter(){
-  stStep=0;
-  stVid.pause();stVid.src='';
+  stStep=0; stVidIdx=0;
+  stVid.pause(); stVid.src='';
+  stVid.removeAttribute('loop');
   document.getElementById('st-title-slide').classList.remove('hide');
   document.getElementById('st-hito-slide').classList.add('hidden');
   document.getElementById('st-controls').classList.add('hidden');
   document.getElementById('st-cur').textContent='0';
   document.getElementById('st-tot').textContent=SELECTED.length;
   document.getElementById('st-prog-bar').style.width='0%';
+  stUpdateArrows();
+}
+
+function stPlayCurrentVid(){
+  const s=SELECTED[stStep-1];
+  stVid.src=s.videos[stVidIdx];
+  stVid.load(); stVid.play().catch(()=>{});
+  document.getElementById('st-prog-bar').style.width='0%';
+  document.getElementById('st-play-lbl').textContent='Pausar';
 }
 
 function stNext(){
   if(stStep>=SELECTED.length){
-    // done → timeline
-    stVid.pause();stVid.src='';
+    stVid.pause(); stVid.src='';
     flash(()=>showScene('s7',true));
     return;
   }
-  stStep++;
+  stStep++; stVidIdx=0;
   const s=SELECTED[stStep-1];
   setTheme(s.era);
 
-  // hide title slide if showing
   document.getElementById('st-title-slide').classList.add('hide');
-  // hide hito slide briefly for transition
   document.getElementById('st-hito-slide').classList.add('hide');
   document.getElementById('st-hito-slide').classList.remove('hidden');
 
@@ -854,18 +878,14 @@ function stNext(){
     document.getElementById('st-cur').textContent=stStep;
     document.getElementById('st-hito-slide').classList.remove('hide');
     document.getElementById('st-controls').classList.remove('hidden');
-    document.getElementById('st-prog-bar').style.width='0%';
-    document.getElementById('st-play-lbl').textContent='Pausar';
-    stVid.src=`video/video${s.hito.n}.mp4`;
-    stVid.load();stVid.play().catch(()=>{});
+    stPlayCurrentVid();
   },320);
 }
 
 function stPrev(){
   if(stStep<=1){
-    // back to title
-    stStep=0;
-    stVid.pause();stVid.src='';
+    stStep=0; stVidIdx=0;
+    stVid.pause(); stVid.src='';
     document.getElementById('st-hito-slide').classList.add('hide');
     document.getElementById('st-controls').classList.add('hidden');
     setTimeout(()=>{
@@ -875,9 +895,27 @@ function stPrev(){
     document.getElementById('st-cur').textContent='0';
     return;
   }
-  stStep-=2; // go back one (stNext increments)
+  stStep-=2;
   stNext();
 }
+
+/* cuando termina un video, pasa al siguiente de la playlist en loop */
+stVid.addEventListener('ended',()=>{
+  if(stStep===0||stStep>SELECTED.length)return;
+  const s=SELECTED[stStep-1];
+  stVidIdx=(stVidIdx+1)%s.videos.length;
+  stPlayCurrentVid();
+});
+
+/* flechas visuales */
+const stArrL=document.getElementById('st-arrow-left');
+const stArrR=document.getElementById('st-arrow-right');
+function stUpdateArrows(){
+  stArrL.classList.toggle('dim', stStep===0);
+  stArrR.classList.toggle('dim', false); // siempre hay avanzar (último paso va a timeline)
+}
+stArrL.addEventListener('click',()=>{stPrev();stUpdateArrows()});
+stArrR.addEventListener('click',()=>{stNext();stUpdateArrows()});
 
 stVid.addEventListener('timeupdate',()=>{if(!stVid.duration)return;document.getElementById('st-prog-bar').style.width=(stVid.currentTime/stVid.duration*100)+'%';const fmt=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;document.getElementById('st-time').textContent=`${fmt(stVid.currentTime)} / ${fmt(stVid.duration)}`});
 document.getElementById('st-playbtn').addEventListener('click',()=>{if(stVid.paused){stVid.play();document.getElementById('st-play-lbl').textContent='Pausar'}else{stVid.pause();document.getElementById('st-play-lbl').textContent='Reproducir'}});
@@ -1003,8 +1041,8 @@ document.addEventListener('keydown',e=>{
     return;
   }
   if(sc==='s3'){
-    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();stNext()}
-    if(e.key==='ArrowLeft'){e.preventDefault();stPrev()}
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();stNext();stUpdateArrows()}
+    if(e.key==='ArrowLeft'){e.preventDefault();stPrev();stUpdateArrows()}
     if(e.key===' '&&stStep>0){e.preventDefault();stVid.paused?stVid.play():stVid.pause()}
     if(e.key==='Escape'){stVid.pause();stVid.src='';flash(()=>showScene('s2',true))}
     return;
