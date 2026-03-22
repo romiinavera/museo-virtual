@@ -453,7 +453,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Crimson Pro',Georg
 <!-- S2: QUICK TOUR -->
 <div class="sc" id="s2">
   <div class="qt-wrap">
-    <video id="qt-video" playsinline loop muted></video>
+    <video id="qt-video" playsinline muted></video>
     <div class="qt-overlay"></div>
     <div class="qt-era" id="qt-era">
       <div class="qt-era-name" id="qt-era-name">Antigüedad</div>
@@ -677,7 +677,7 @@ const FN_STATS=[
 const MAIN_FLOW=['s0','s1','s2','s3','s7','s8'];
 let sc='s0', activeEra=null, activeHitoIdx=0, animFlag=false;
 let mx=innerWidth/2, my=innerHeight/2, ax=mx, ay=my;
-let qtIdx=0, qtTimer=null, qtDuration=8000, qtStart=0, qtPaused=false;
+let qtIdx=0, qtTimer=null, qtDuration=5000, qtStart=0, qtPaused=false;
 let stActiveIdx=0, fvpActiveEra=null, fvpActiveIdx=0;
 
 /* ══ STARS ══ */
@@ -823,6 +823,8 @@ function animQtProgress(){
 
 document.getElementById('qt-skip').addEventListener('click',()=>{clearTimeout(qtTimer);qtShowHito(qtIdx+1)});
 document.getElementById('qt-exit-tour').addEventListener('click',()=>{clearTimeout(qtTimer);qtVid.pause();qtVid.src='';flash(()=>showScene('s3',true))});
+/* cuando termina el video avanza solo al siguiente hito */
+qtVid.addEventListener('ended',()=>{clearTimeout(qtTimer);qtShowHito(qtIdx+1)});
 
 /* ══ SELECTED TOPICS — slide based ══ */
 const stVid=document.getElementById('st-video');
