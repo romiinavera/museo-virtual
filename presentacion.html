@@ -899,25 +899,36 @@ function stPrev(){
   stNext();
 }
 
-/* cuando termina un video, pasa al siguiente de la playlist en loop */
-stVid.addEventListener('ended',()=>{
-  if(stStep===0||stStep>SELECTED.length)return;
-  const s=SELECTED[stStep-1];
-  stVidIdx=(stVidIdx+1)%s.videos.length;
-  stPlayCurrentVid();
-});
-
 /* flechas visuales */
 const stArrL=document.getElementById('st-arrow-left');
 const stArrR=document.getElementById('st-arrow-right');
 function stUpdateArrows(){
   stArrL.classList.toggle('dim', stStep===0);
-  stArrR.classList.toggle('dim', false); // siempre hay avanzar (último paso va a timeline)
+  stArrR.classList.toggle('dim', false);
 }
 stArrL.addEventListener('click',()=>{stPrev();stUpdateArrows()});
 stArrR.addEventListener('click',()=>{stNext();stUpdateArrows()});
 
-stVid.addEventListener('timeupdate',()=>{if(!stVid.duration)return;document.getElementById('st-prog-bar').style.width=(stVid.currentTime/stVid.duration*100)+'%';const fmt=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;document.getElementById('st-time').textContent=`${fmt(stVid.currentTime)} / ${fmt(stVid.duration)}`});
+/* transición sin negro: swap a 0.3s del final */
+let stSwapping=false;
+stVid.addEventListener('timeupdate',()=>{
+  if(!stVid.duration)return;
+  // barra de progreso
+  document.getElementById('st-prog-bar').style.width=(stVid.currentTime/stVid.duration*100)+'%';
+  const fmt=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+  document.getElementById('st-time').textContent=`${fmt(stVid.currentTime)} / ${fmt(stVid.duration)}`;
+  // swap anticipado — cuando quedan 0.3s ya cargamos el siguiente
+  if(stStep>0&&stStep<=SELECTED.length&&!stSwapping&&stVid.duration-stVid.currentTime<0.3){
+    stSwapping=true;
+    const s=SELECTED[stStep-1];
+    stVidIdx=(stVidIdx+1)%s.videos.length;
+    stVid.src=s.videos[stVidIdx];
+    stVid.load();
+    stVid.play().catch(()=>{});
+    document.getElementById('st-prog-bar').style.width='0%';
+    setTimeout(()=>stSwapping=false, 600);
+  }
+});
 document.getElementById('st-playbtn').addEventListener('click',()=>{if(stVid.paused){stVid.play();document.getElementById('st-play-lbl').textContent='Pausar'}else{stVid.pause();document.getElementById('st-play-lbl').textContent='Reproducir'}});
 document.getElementById('st-prog-wrap').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();if(stVid.duration)stVid.currentTime=((e.clientX-r.left)/r.width)*stVid.duration});
 document.getElementById('st-back').addEventListener('click',()=>{stVid.pause();stVid.src='';flash(()=>showScene('s2',true))});
