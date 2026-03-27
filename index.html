@@ -139,6 +139,12 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
 .panel-body { font-size:13px; color:var(--text2); line-height:1.8; flex:1; }
 .panel-body p { margin-bottom:10px; }
 .panel-body p:last-child { margin-bottom:0; }
+.panel-impact { font-size:12px; color:var(--text3); margin-top:14px; padding-top:12px; border-top:1px solid var(--border2); line-height:1.6; }
+.panel-impact strong { color:var(--amber); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; display:block; margin-bottom:4px; }
+.sala-media .panel-impact strong { color:var(--teal); }
+.sala-moderna .panel-impact strong { color:var(--blue); }
+.sala-industrial .panel-impact strong { color:var(--purple); }
+.sala-digital .panel-impact strong { color:var(--coral); }
 .panel-cite { font-size:11px; color:var(--text3); margin-top:14px; padding-top:12px; border-top:1px solid var(--border2); font-style:italic; }
 .sala-sep { text-align:center; padding:20px; color:var(--text4); font-size:12px; letter-spacing:0.15em; }
 .sala-sep::before,.sala-sep::after { content:'——————'; margin:0 12px; opacity:0.25; }
@@ -238,7 +244,6 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
   <h1>Ciencia &amp; <em>Tecnología</em><br>en la Historia</h1>
   <p class="entrada-sub">Un recorrido por los grandes hitos que transformaron el conocimiento humano, desde la Antigüedad hasta la era de la inteligencia artificial.</p>
 
-  <!-- ── BOTÓN PRESENTACIÓN ── -->
   <div class="btn-presentacion-wrap">
     <a href="presentacion.html" class="btn-presentacion">
       <span class="btn-pres-pulse"></span>
@@ -263,13 +268,17 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
   </div>
 </section>
 
-<!-- SALA I -->
+<!-- ══════════════════════════════════════════
+     SALA I — ANTIGÜEDAD
+     Rango corregido: ~3500 a.C. — 476 d.C.
+     Hito agregado: El papel (China, ~105 d.C.)
+     ══════════════════════════════════════════ -->
 <section class="sala sala-antigua" id="sala-antigua">
   <div class="sala-inner">
     <div class="sala-header">
       <div class="sala-num">Sala I</div>
       <h2>La Antigüedad<br>y los orígenes del saber</h2>
-      <div class="sala-period">~3500 a.C. — 500 a.C.</div>
+      <div class="sala-period">~3500 a.C. — 476 d.C.</div>
       <p class="sala-intro">Los primeros avances tecnológicos de la humanidad surgieron de la necesidad de resolver problemas concretos: mover objetos, registrar información, comprender el cosmos. Estos hitos sentaron las bases del pensamiento científico y técnico que guiaría el desarrollo de todas las civilizaciones posteriores.</p>
     </div>
     <div class="paneles paneles-2">
@@ -298,44 +307,62 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
             <p>La rueda es uno de los inventos más importantes de la historia humana. Durante mucho tiempo se creyó que había surgido de forma relativamente directa para el transporte, pero investigaciones recientes indican que su desarrollo fue más complejo y pudo haber estado vinculado inicialmente a actividades como la alfarería.</p>
             <p>Según nuevos hallazgos, las primeras aplicaciones del movimiento rotatorio no necesariamente estuvieron relacionadas con carros o transporte, sino con herramientas como el torno. Esto sugiere que la idea de la rueda evolucionó gradualmente y en distintos contextos tecnológicos. Su posterior aplicación al transporte transformó profundamente las sociedades, facilitando el movimiento de cargas y contribuyendo al desarrollo de nuevas tecnologías.</p>
           </div>
-          <div class="panel-cite">National Geographic Historia. (2024). ¿Cuándo inventamos la rueda? https://historia.nationalgeographic.com.es/a/cuando-inventamos-rueda-este-hallazgo-desafia-que-creiamos_22588</div>                   
+          <div class="panel-impact"><strong>Impacto en la sociedad</strong>Su adopción en el transporte y la alfarería impulsó el comercio a larga distancia, la construcción monumental y la organización de las primeras ciudades mesopotámicas.</div>
+          <div class="panel-cite">National Geographic Historia. (2024). ¿Cuándo inventamos la rueda? https://historia.nationalgeographic.com.es/a/cuando-inventamos-rueda-este-hallazgo-desafia-que-creiamos_22588</div>
         </div>
       </div>
+
       <div class="panel">
         <div class="panel-year">~3000 a.C.</div>
         <h3>La escritura cuneiforme y los jeroglíficos</h3>
         <div class="panel-body">
-          <p>Los sumerios en Mesopotamia y los egipcios en el Nilo desarrollaron independientemente sistemas de escritura que revolucionaron la transmisión del conocimiento. La escritura cuneiforme, grabada en tablillas de arcilla, permitió registrar transacciones comerciales, leyes y observaciones astronómicas.</p><p>Esta tecnología comunicacional fue fundamental para la acumulación y transmisión del saber científico entre generaciones. Por primera vez, el conocimiento podía preservarse más allá de la memoria individual, permitiendo que cada generación construyera sobre los logros de la anterior. Los primeros documentos propiamente escritos aparecen en Mesopotamia en torno al milenio IV a.C., siendo Uruk el centro de esta innovación (National Geographic Historia, s.f.).</p>          
+          <p>Los sumerios en Mesopotamia y los egipcios en el Nilo desarrollaron independientemente sistemas de escritura que revolucionaron la transmisión del conocimiento. La escritura cuneiforme, grabada en tablillas de arcilla, permitió registrar transacciones comerciales, leyes y observaciones astronómicas.</p>
+          <p>Esta tecnología comunicacional fue fundamental para la acumulación y transmisión del saber científico entre generaciones. Por primera vez, el conocimiento podía preservarse más allá de la memoria individual, permitiendo que cada generación construyera sobre los logros de la anterior. Los primeros documentos propiamente escritos aparecen en Mesopotamia en torno al milenio IV a.C., siendo Uruk el centro de esta innovación.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Permitió administrar estados complejos, codificar leyes y acumular conocimiento entre generaciones: condición indispensable para el surgimiento de la ciencia y la cultura letrada.</div>
         <div class="panel-cite">National Geographic Historia. (2024). Así se originó la escritura en la antigua Mesopotamia. https://historia.nationalgeographic.com.es/a/asi-se-origino-escritura-antigua-mesopotamia_20605</div>
       </div>
+
       <div class="panel">
         <div class="panel-year">~600 a.C. — ~300 a.C.</div>
         <h3>Filosofía griega y Biblioteca de Alejandría</h3>
         <div class="panel-body">
-          <p>En la Antigua Grecia, pensadores como Tales de Mileto, Pitágoras y Heráclito comenzaron a buscar explicaciones racionales sobre el origen y funcionamiento del mundo, dejando de lado las interpretaciones míticas tradicionales. Este enfoque dio lugar a la filosofía griega, que introdujo el uso de la razón, la observación y la argumentación como formas fundamentales de conocimiento.</p>
-          <p>Este cambio representó un paso clave en el desarrollo del pensamiento científico, ya que promovió la búsqueda de causas naturales y principios universales. Con el tiempo, estas ideas influyeron en distintas áreas del saber, como la matemática, la física y la ética, sentando bases duraderas para la ciencia occidental.</p>
-          <p>La Biblioteca de Alejandría, fundada en Egipto, se convirtió en uno de los mayores centros de conocimiento de la Antigüedad. Su objetivo era reunir y preservar todo el saber disponible, albergando miles de rollos y atrayendo a estudiosos de distintas regiones. Este espacio favoreció la acumulación, organización y transmisión del conocimiento, consolidando un entorno clave para el desarrollo intelectual de la época.</p>
+          <p>En la Antigua Grecia, pensadores como Tales de Mileto, Pitágoras y Heráclito comenzaron a buscar explicaciones racionales sobre el origen y funcionamiento del mundo, dejando de lado las interpretaciones míticas tradicionales. Este enfoque introdujo el uso de la razón, la observación y la argumentación como formas fundamentales de conocimiento.</p>
+          <p>La Biblioteca de Alejandría, fundada en Egipto, se convirtió en uno de los mayores centros de conocimiento de la Antigüedad, albergando miles de rollos y atrayendo a estudiosos de distintas regiones. Este espacio favoreció la acumulación, organización y transmisión del conocimiento, consolidando un entorno clave para el desarrollo intelectual de la época.</p>
         </div>
-        <div class="panel-cite">
-          National Geographic Historia. (2024). La Biblioteca de Alejandría. https://historia.nationalgeographic.com.es/a/biblioteca-alejandria-destruccion-gran-centro-saber-antiguedad_8593<br>
-          World History Encyclopedia. (2024). Filosofía griega. https://www.worldhistory.org/trans/es/1-11892/filosofia-griega/
-        </div>
-        <div class="panel-cite">World History Encyclopedia. (2024). Filosofía griega. https://www.worldhistory.org/trans/es/1-11892/filosofia-griega/ — Kuhn, T. S. (2004). La estructura de las revoluciones científicas.</div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Estableció la razón como herramienta de conocimiento y sentó las bases del pensamiento científico occidental, creando un modelo de institución académica que perduró por siglos.</div>
+        <div class="panel-cite">National Geographic Historia. (2024). La Biblioteca de Alejandría. https://historia.nationalgeographic.com.es/a/biblioteca-alejandria-destruccion-gran-centro-saber-antiguedad_8593 — World History Encyclopedia. (2024). Filosofía griega. https://www.worldhistory.org/trans/es/1-11892/filosofia-griega/</div>
       </div>
+
+      <!-- PAPEL — movido desde Sala II a Sala I (Antigüedad tardía, 105 d.C.) -->
+      <div class="panel">
+        <div class="panel-year">~105 d.C.</div>
+        <h3>El papel y la tecnología de la escritura</h3>
+        <div class="panel-body">
+          <p>En China, Cai Lun perfeccionó la fabricación del papel utilizando fibras vegetales como corteza de árbol, restos de tela y redes de pesca. Este avance permitió obtener un material más económico y accesible que otros soportes de escritura como el bambú o la seda.</p>
+          <p>La técnica de producción del papel se mantuvo durante siglos en Asia antes de difundirse progresivamente hacia otras regiones, facilitando la escritura, el registro y la transmisión del conocimiento en todo el mundo.</p>
+        </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Al abaratar el soporte de la escritura, el papel democratizó el acceso al conocimiento y preparó el terreno para la posterior expansión del libro y, siglos más tarde, de la imprenta.</div>
+        <div class="panel-cite">Historia de los Materiales — UBU. (s.f.). El papel. https://historiamateriales.ubuinvestiga.es/papel/</div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <div class="sala-sep">· · ·</div>
 
-<!-- SALA II -->
+<!-- ══════════════════════════════════════════
+     SALA II — EDAD MEDIA
+     Rango corregido: 476 d.C. — 1453
+     Sin el hito del papel (movido a Sala I)
+     ══════════════════════════════════════════ -->
 <section class="sala sala-media" id="sala-media">
   <div class="sala-inner">
     <div class="sala-header">
       <div class="sala-num">Sala II</div>
       <h2>La Edad Media<br>y la preservación del saber</h2>
-      <div class="sala-period">105 d.C. — 1440</div>
+      <div class="sala-period">476 d.C. — 1453</div>
       <p class="sala-intro">Lejos de ser una época de oscurantismo, la Edad Media fue un período de crucial preservación y enriquecimiento del conocimiento. El mundo islámico mantuvo viva la llama científica mientras Europa se reorganizaba, y la invención de la imprenta transformaría para siempre la difusión del saber.</p>
     </div>
     <div class="paneles paneles-2">
@@ -360,27 +387,21 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
           <h3>La Casa de la Sabiduría de Bagdad</h3>
           <div class="panel-body">
             <p>Bajo el califato abasí, la Casa de la Sabiduría (Bayt al-Hikmah) en Bagdad fue un importante centro intelectual dedicado a la traducción, preservación y expansión del conocimiento. Allí se tradujeron al árabe textos fundamentales de la tradición griega, persa e india, lo que permitió conservar y difundir saberes de distintas culturas.</p>
-            <p>Además de esta labor de traducción, en la Casa de la Sabiduría se desarrollaron avances originales en diversas áreas como la matemática, la astronomía y la medicina. Este intercambio y producción de conocimiento la convirtieron en un hito clave en la historia intelectual, favoreciendo la transmisión de ideas que más tarde influirían en el desarrollo científico de otras regiones.</p>
+            <p>Además de esta labor de traducción, en la Casa de la Sabiduría se desarrollaron avances originales en diversas áreas como la matemática, la astronomía y la medicina, convirtiéndola en un hito clave en la historia intelectual.</p>
           </div>
+          <div class="panel-impact"><strong>Impacto en la sociedad</strong>Preservó el saber clásico que Europa había perdido y produjo avances originales en álgebra y astronomía que más tarde alimentarían la Revolución Científica europea.</div>
           <div class="panel-cite">Gordon-Conwell Theological Seminary. (s.f.). Baghdad's House of Wisdom. https://www.gordonconwell.edu/blog/baghdads-house-of-wisdom/</div>
+        </div>
       </div>
-      <div class="panel">
-      <div class="panel-year">~105 d.C.</div>
-      <h3>El papel y la tecnología de la escritura</h3>
-      <div class="panel-body">
-        <p>En China, Cai Lun perfeccionó la fabricación del papel utilizando fibras vegetales como corteza de árbol, restos de tela y redes de pesca. Este avance permitió obtener un material más económico y accesible que otros soportes de escritura como el bambú o la seda.</p>
-        <p>La técnica de producción del papel se mantuvo durante siglos en Asia antes de difundirse progresivamente hacia otras regiones. Su expansión permitió facilitar la escritura, el registro y la transmisión del conocimiento, convirtiéndose en un soporte fundamental para el desarrollo cultural y científico.</p>
-      </div>
-      <div class="panel-cite">Historia de los Materiales — UBU. (s.f.). El papel. https://historiamateriales.ubuinvestiga.es/papel/</div>
-      </div>
-      
-      <div class="panel">
+
+      <div class="panel panel-wide">
         <div class="panel-year">1440</div>
         <h3>La imprenta de tipos móviles: Gutenberg</h3>
         <div class="panel-body">
-          <p>El invento de Gutenberg no fue solo técnico: transformó la sociedad al hacer accesible el conocimiento a capas de la población que jamás habían tenido contacto con libros. En pocas décadas, el número de libros en Europa pasó de miles a millones (National Geographic Historia, 2024).</p>
-          <p>Este proceso democratizó el saber y creó las condiciones para la Revolución Científica del siglo XVI (AICAD Business School, s.f.; Vivelibre, 2024).</p>
+          <p>El invento de Gutenberg no fue solo técnico: transformó la sociedad al hacer accesible el conocimiento a capas de la población que jamás habían tenido contacto con libros. En pocas décadas, el número de libros en Europa pasó de miles a millones.</p>
+          <p>Este proceso democratizó el saber y creó las condiciones para la Revolución Científica del siglo XVI, al permitir que las ideas circularan con una velocidad y a una escala sin precedentes.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Rompió el monopolio de la Iglesia y las élites sobre la cultura escrita, impulsó la alfabetización, facilitó la Reforma Protestante y creó las condiciones materiales para la Revolución Científica.</div>
         <div class="panel-cite">National Geographic Historia. (2024). Gutenberg: el inventor que cambió el mundo. https://historia.nationalgeographic.com.es/a/gutenberg-inventor-que-cambio-mundo_11140</div>
       </div>
     </div>
@@ -404,10 +425,12 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
         <h3>Copérnico y el modelo heliocéntrico</h3>
         <div class="panel-body">
           <p>Nicolás Copérnico propuso un modelo del universo en el que la Tierra y los demás planetas giran alrededor del Sol, desafiando la visión geocéntrica dominante durante siglos. Su obra, publicada en 1543, planteó una nueva forma de entender el cosmos basada en la observación y el razonamiento matemático.</p>
-          <p>Este modelo no solo transformó la astronomía, sino que también cambió la manera de concebir el lugar del ser humano en el universo. La propuesta copernicana marcó el inicio de una profunda transformación en el pensamiento científico, al cuestionar ideas establecidas y abrir el camino a nuevas investigaciones.</p>
+          <p>Este modelo no solo transformó la astronomía, sino que también cambió la manera de concebir el lugar del ser humano en el universo, marcando el inicio de una profunda transformación en el pensamiento científico.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Desafió la autoridad religiosa sobre la descripción del cosmos e inició el primer cambio de paradigma de la ciencia moderna, abriendo el camino a Galileo, Kepler y Newton.</div>
         <div class="panel-cite">National Geographic Historia. (2024). Nicolás Copérnico y la revolución del cosmos. https://historia.nationalgeographic.com.es/a/nicolas-copernico-y-revolucion-cosmos_13321</div>
       </div>
+
       <div class="panel">
         <div class="panel-year">1609</div>
         <h3>Galileo y el nacimiento de la física experimental</h3>
@@ -415,8 +438,10 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
           <p>El telescopio no fue solo un instrumento astronómico: representó un nuevo modo de conocer, donde el ojo humano asistido por la tecnología podía ir más allá de sus límites naturales. Con él, Galileo observó las lunas de Júpiter y aportó pruebas directas a favor del modelo heliocéntrico.</p>
           <p>Estas observaciones marcaron un cambio fundamental en la forma de estudiar la naturaleza, al basarse en la evidencia empírica obtenida mediante instrumentos y en la verificación de ideas a través de la observación sistemática.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Consolidó el método experimental como base del conocimiento científico y demostró que la tecnología puede ampliar las capacidades humanas de observación y comprensión del mundo.</div>
         <div class="panel-cite">World History Encyclopedia. (2024). El telescopio y la revolución científica. https://www.worldhistory.org/trans/es/2-2270/el-telescopio-y-la-revolucion-cientifica/</div>
       </div>
+
       <div class="panel-featured split">
         <div class="exhibit-zone" style="--ez-color:var(--blue)" data-exhibit="moderna">
           <svg viewBox="0 0 200 220" class="fig" xmlns="http://www.w3.org/2000/svg">
@@ -439,7 +464,8 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
             <p>Isaac Newton unificó en un único sistema matemático la mecánica terrestre y la astronomía celeste a través de su obra <em>Principia Mathematica</em>, publicada en 1687. En ella formuló las leyes del movimiento y la ley de la gravitación universal, estableciendo principios fundamentales para comprender el comportamiento de los cuerpos.</p>
             <p>El impacto de esta obra fue enorme: sentó las bases de la física clásica y permitió el desarrollo de múltiples aplicaciones en la ingeniería y la ciencia. Sus leyes del movimiento continúan siendo fundamentales para el estudio del movimiento y el diseño de sistemas mecánicos.</p>
           </div>
-          <div class="panel-cite">National Geographic. (2024). Principia Mathematica: el legado de Newton. https://www.nationalgeographic.com.es/ciencia/principia-mathematica-legado-newton-divulgacion-cientifica_21675</div>        
+          <div class="panel-impact"><strong>Impacto en la sociedad</strong>Proporcionó el marco matemático sobre el que se construyeron la ingeniería civil, la navegación y la industria durante los dos siglos siguientes, siendo base directa de la Revolución Industrial.</div>
+          <div class="panel-cite">National Geographic. (2024). Principia Mathematica: el legado de Newton. https://www.nationalgeographic.com.es/ciencia/principia-mathematica-legado-newton-divulgacion-cientifica_21675</div>
         </div>
       </div>
     </div>
@@ -482,35 +508,42 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
           <h3>La máquina de vapor: James Watt</h3>
           <div class="panel-body">
             <p>James Watt realizó mejoras fundamentales a la máquina de vapor, como la incorporación del condensador separado, lo que aumentó significativamente su eficiencia. También desarrolló mecanismos que permitieron transformar el movimiento en rotación continua, ampliando sus aplicaciones.</p>
-            <p>Estas innovaciones hicieron posible su uso en diversas actividades productivas, especialmente en la industria y la minería. La máquina de vapor se convirtió así en un elemento clave de la Revolución Industrial, al permitir la mecanización de procesos y transformar las formas de producción.</p>
+            <p>Estas innovaciones hicieron posible su uso en diversas actividades productivas, especialmente en la industria y la minería, convirtiéndose en un elemento clave de la Revolución Industrial.</p>
           </div>
-          <div class="panel-cite">World History Encyclopedia. (2024). La máquina de vapor de Watt. https://www.worldhistory.org/trans/es/1-21774/la-maquina-de-vapor-de-watt/</div>           
+          <div class="panel-impact"><strong>Impacto en la sociedad</strong>Mecanizó la producción fabril, impulsó el ferrocarril y transformó las relaciones laborales: marcó el paso de una economía agraria a una industrial, con profundas consecuencias sociales y urbanas.</div>
+          <div class="panel-cite">World History Encyclopedia. (2024). La máquina de vapor de Watt. https://www.worldhistory.org/trans/es/1-21774/la-maquina-de-vapor-de-watt/</div>
         </div>
       </div>
+
       <div class="panel">
         <div class="panel-year">1820 — 1831</div>
         <h3>Electromagnetismo: Ørsted, Ampère y Faraday</h3>
         <div class="panel-body">
           <p>Ørsted descubrió que una corriente eléctrica genera un campo magnético, Ampère desarrolló su formulación matemática, y Faraday descubrió la inducción electromagnética. Estos avances, logrados en pocas décadas, permitieron comprender la relación entre electricidad y magnetismo.</p>
-          <p>En conjunto, estos descubrimientos sentaron las bases de una nueva área de la física y permitieron explicar fenómenos fundamentales de la naturaleza, consolidando el desarrollo del electromagnetismo como campo científico.</p>
+          <p>En conjunto, estos descubrimientos sentaron las bases de una nueva área de la física y permitieron explicar fenómenos fundamentales de la naturaleza, consolidando el electromagnetismo como campo científico.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Hicieron posibles el motor eléctrico, el generador y el transformador: tecnologías que electrificaron las ciudades, las fábricas y los hogares a lo largo del siglo XIX y XX.</div>
         <div class="panel-cite">Britannica. (2024). Electromagnetism. https://www.britannica.com/science/electromagnetism/Foundations-of-electrochemistry-and-electrodynamics</div>
       </div>
+
       <div class="panel">
         <div class="panel-year">1876 · 1895</div>
         <h3>El teléfono y los Rayos X</h3>
         <div class="panel-body">
-          <p>Bell patentó el teléfono en 1876; la disputa legal con Elisha Gray, quien presentó su solicitud el mismo día, ilustra cómo el progreso tecnológico suele ser un proceso paralelo en distintos actores (Telefónica, 2024). En 1895, Röntgen descubrió los rayos X de forma casi accidental. Marie Curie, quien acuñó el término radiactividad, fue la primera persona en ganar dos premios Nobel en distintas disciplinas (LibreTexts Español, s.f.).</p>
+          <p>Bell patentó el teléfono en 1876; la disputa legal con Elisha Gray, quien presentó su solicitud el mismo día, ilustra cómo el progreso tecnológico suele ser un proceso paralelo en distintos actores. En 1895, Röntgen descubrió los rayos X de forma casi accidental. Marie Curie, quien acuñó el término radiactividad, fue la primera persona en ganar dos premios Nobel en distintas disciplinas.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>El teléfono revolucionó las comunicaciones personales y comerciales; los rayos X transformaron la medicina diagnóstica y abrieron el camino a la física nuclear y a tratamientos médicos modernos.</div>
         <div class="panel-cite">Telefónica. (2024). 9 inventos tecnológicos que han cambiado el mundo. — LibreTexts Español. (s.f.). Rayos X y radiactividad.</div>
       </div>
+
       <div class="panel panel-wide">
         <div class="panel-year">1903</div>
         <h3>El primer vuelo motorizado: Hermanos Wright</h3>
         <div class="panel-body">
-          <p>El 17 de diciembre de 1903, en Kitty Hawk, Orville Wright mantuvo en el aire el Flyer I durante 12 segundos y recorrió 36 metros. Los hermanos Wright no eran científicos sino mecánicos y fabricantes de bicicletas: su logro fue posible gracias a la experimentación sistemática y la ingeniería aplicada, no a la investigación académica (NASA, 2023).</p>
+          <p>El 17 de diciembre de 1903, en Kitty Hawk, Orville Wright mantuvo en el aire el Flyer I durante 12 segundos y recorrió 36 metros. Los hermanos Wright no eran científicos sino mecánicos y fabricantes de bicicletas: su logro fue posible gracias a la experimentación sistemática y la ingeniería aplicada, no a la investigación académica.</p>
           <p>En apenas dos décadas, los aviones pasaron de frágiles biplanos a máquinas de transporte intercontinental, transformando la movilidad humana global.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Redujo drásticamente las distancias entre continentes, impulsó el comercio y el turismo globales, y tuvo un papel decisivo en los conflictos bélicos del siglo XX, acelerando también la exploración espacial.</div>
         <div class="panel-cite">NASA. (2023). 120 years ago: The first powered flight at Kitty Hawk. https://www.nasa.gov/history/120-years-ago-the-first-powered-flight-at-kitty-hawk/</div>
       </div>
     </div>
@@ -549,28 +582,34 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
           <h3>ENIAC: el nacimiento de la computadora</h3>
           <div class="panel-body">
             <p>La ENIAC, desarrollada por J. Presper Eckert y John Mauchly en la Universidad de Pensilvania, fue una de las primeras computadoras electrónicas de propósito general. Ocupaba una gran superficie, pesaba varias toneladas y estaba compuesta por miles de válvulas de vacío.</p>
-            <p>Fue diseñada para realizar cálculos complejos, como tablas de tiro de artillería, y podía ejecutar miles de operaciones por segundo, lo que representó un avance sin precedentes en la capacidad de procesamiento. Su desarrollo marcó el inicio de la era de la computación moderna.</p>
+            <p>Fue diseñada para realizar cálculos complejos, como tablas de tiro de artillería, y podía ejecutar miles de operaciones por segundo, representando un avance sin precedentes en la capacidad de procesamiento.</p>
           </div>
+          <div class="panel-impact"><strong>Impacto en la sociedad</strong>Inauguró la era de la computación moderna, sentando las bases tecnológicas de todos los sistemas digitales actuales, desde los teléfonos inteligentes hasta los servidores en la nube.</div>
           <div class="panel-cite">HP Tech Takes. (s.f.). Computer history: All about the ENIAC. https://www.hp.com/us-en/shop/tech-takes/computer-history-all-about-the-eniac</div>
         </div>
       </div>
+
       <div class="panel">
         <div class="panel-year">1957 · 1969</div>
         <h3>Sputnik y ARPANET: hacia el mundo conectado</h3>
         <div class="panel-body">
-          <p>El Sputnik soviético, lanzado el 4 de octubre de 1957, provocó pánico y admiración a partes iguales en Occidente, impulsando enormes inversiones en educación científica y electrónica (National Geographic, 2024). En respuesta, el Departamento de Defensa de EE.UU. creó ARPANET en 1969. El primer mensaje enviado fue simplemente "lo" antes de que el sistema colapsara (National Geographic América Latina, 2024).</p>
+          <p>El Sputnik soviético, lanzado el 4 de octubre de 1957, provocó pánico y admiración a partes iguales en Occidente, impulsando enormes inversiones en educación científica y electrónica. En respuesta, el Departamento de Defensa de EE.UU. creó ARPANET en 1969. El primer mensaje enviado fue simplemente "lo" antes de que el sistema colapsara.</p>
         </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>El Sputnik aceleró la inversión pública en ciencia y educación; ARPANET estableció los principios técnicos de la red distribuida que daría origen a Internet y conectaría al mundo entero.</div>
         <div class="panel-cite">National Geographic. (2024). La carrera espacial, paso a paso. — National Geographic América Latina. (2024). ¿Cuál es el origen de Internet?</div>
       </div>
+
       <div class="panel">
         <div class="panel-year">1991</div>
         <h3>World Wide Web: Tim Berners-Lee</h3>
         <div class="panel-body">
-          <p>Tim Berners-Lee creó la World Wide Web en el CERN como un sistema para compartir información mediante páginas interconectadas a través de enlaces de hipertexto. Su objetivo era facilitar el acceso y la organización del conocimiento entre científicos.</p>
-          <p>La Web fue puesta a disposición pública de forma gratuita, lo que permitió su rápida expansión. Es importante distinguirla de Internet: mientras que Internet es la infraestructura de red, la Web es un sistema que funciona sobre ella y permite acceder a información mediante navegadores.</p>
+          <p>Tim Berners-Lee creó la World Wide Web en el CERN como un sistema para compartir información mediante páginas interconectadas a través de enlaces de hipertexto. La Web fue puesta a disposición pública de forma gratuita, lo que permitió su rápida expansión.</p>
+          <p>Es importante distinguirla de Internet: mientras que Internet es la infraestructura de red, la Web es un sistema que funciona sobre ella y permite acceder a información mediante navegadores.</p>
         </div>
-        <div class="panel-cite">CERN. (s.f.). A short history of the Web. https://home.cern/science/computing/birth-web/short-history-web</div>     
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Democratizó el acceso a la información a escala global, transformó el comercio, la educación y la comunicación, y se convirtió en la plataforma sobre la que se construyó la economía digital.</div>
+        <div class="panel-cite">CERN. (s.f.). A short history of the Web. https://home.cern/science/computing/birth-web/short-history-web</div>
       </div>
+
       <div class="panel panel-wide">
         <div class="panel-year">2000s — presente</div>
         <h3>Inteligencia Artificial y el presente tecnológico</h3>
@@ -578,10 +617,8 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
           <p>Desde comienzos del siglo XXI, las redes sociales han transformado la forma en que las personas se comunican, comparten información y construyen vínculos. Plataformas como Facebook, Twitter e Instagram marcaron un cambio en la interacción social, generando nuevas dinámicas en la difusión de contenidos y en la vida cotidiana.</p>
           <p>En paralelo, la inteligencia artificial ha experimentado un desarrollo acelerado. A lo largo del tiempo, se han logrado avances en el aprendizaje automático y, más recientemente, en la inteligencia artificial generativa, capaz de crear textos, imágenes y otros contenidos a partir de datos. Estas tecnologías representan una nueva etapa en la relación entre humanos y sistemas computacionales.</p>
         </div>
-        <div class="panel-cite">
-          Telefónica. (s.f.). Redes sociales: origen e historia. https://www.telefonica.com/es/sala-comunicacion/blog/redes-sociales-origen-historia/<br>
-          Dataversity. (s.f.). A brief history of generative AI. https://www.dataversity.net/articles/a-brief-history-of-generative-ai/
-        </div>
+        <div class="panel-impact"><strong>Impacto en la sociedad</strong>Las redes sociales reconfiguraron la opinión pública y las relaciones interpersonales; la IA generativa plantea un cambio de paradigma en el trabajo, la creatividad y la toma de decisiones, con profundas implicancias éticas y sociales aún en debate.</div>
+        <div class="panel-cite">Telefónica. (s.f.). Redes sociales: origen e historia. https://www.telefonica.com/es/sala-comunicacion/blog/redes-sociales-origen-historia/ — Dataversity. (s.f.). A brief history of generative AI. https://www.dataversity.net/articles/a-brief-history-of-generative-ai/</div>
       </div>
     </div>
   </div>
@@ -594,6 +631,7 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
     CERN. (s.f.). <em>A short history of the Web.</em> https://home.cern/science/computing/birth-web/short-history-web<br>
     Dataversity. (s.f.). <em>A brief history of generative AI.</em> https://www.dataversity.net/articles/a-brief-history-of-generative-ai/<br>
     Gordon-Conwell Theological Seminary. (s.f.). <em>Baghdad's House of Wisdom.</em> https://www.gordonconwell.edu/blog/baghdads-house-of-wisdom/<br>
+    Historia de los Materiales — UBU. (s.f.). <em>El papel.</em> https://historiamateriales.ubuinvestiga.es/papel/<br>
     HP Tech Takes. (s.f.). <em>Computer history: All about the ENIAC.</em> https://www.hp.com/us-en/shop/tech-takes/computer-history-all-about-the-eniac<br>
     LibreTexts Español. (s.f.). <em>Serendipia en la ciencia: rayos X y radiactividad.</em> https://espanol.libretexts.org/Bookshelves/Quimica/Qu%C3%ADmica_Introductoria%2C_Conceptual_y_GOB/Qu%C3%ADmica_para_Tiempos_Cambiantes_(Hill_y_McCreary)/03%3A_Estructura_at%C3%B3mica/3.02%3A_Serendipia_en_la_Ciencia_-_Rayos_X_y_Radiactividad<br>
     NASA. (2023). <em>120 years ago: The first powered flight at Kitty Hawk.</em> https://www.nasa.gov/history/120-years-ago-the-first-powered-flight-at-kitty-hawk/<br>
@@ -647,20 +685,21 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text)
 <script>
 const DATA = {
   antigua: {
-    tag:'Sala I', title:'La Antigüedad', period:'~3500 a.C. — 500 a.C.', accent:'#C9A84C',
-    salaInfo:'Los primeros avances tecnológicos de la humanidad surgieron de la necesidad de resolver problemas concretos. Mesopotamia, Egipto y Grecia sentaron las bases del pensamiento científico y técnico que guiaría el desarrollo de todas las civilizaciones posteriores.',
+    tag:'Sala I', title:'La Antigüedad', period:'~3500 a.C. — 476 d.C.', accent:'#C9A84C',
+    salaInfo:'Los primeros avances tecnológicos de la humanidad surgieron de la necesidad de resolver problemas concretos. Mesopotamia, Egipto, Grecia y China sentaron las bases del pensamiento científico y técnico que guiaría el desarrollo de todas las civilizaciones posteriores.',
     slides:[
       {src:'imagen/imagen1.jpg', year:'~3500 a.C.', title:'La rueda — Mesopotamia'},
       {src:'imagen/imagen2.jpg', year:'~3000 a.C.', title:'Escritura cuneiforme sumeria'},
       {src:'imagen/imagen3.jpg', year:'~300 a.C.',  title:'Biblioteca de Alejandría'},
       {src:'imagen/imagen4.jpg', year:'~250 a.C.',  title:'Arquímedes y la mecánica'},
+      {src:'imagen/imagen5.jpg', year:'~105 d.C.',  title:'Cai Lun — inventor del papel'},
     ],
     hitos:[
       { year:'~3500 a.C.', name:'Invención de la rueda', brief:'Mesopotamia — primer transporte sobre eje',
         ficha:[
           {label:'Lugar',value:'Mesopotamia (actual Irak)'},
           {label:'Área',value:'Ingeniería mecánica'},
-          {label:'Impacto',value:'Transporte, alfarería, irrigación, construcción monumental'},
+          {label:'Impacto social',value:'Impulsó el comercio a larga distancia, la construcción monumental y la organización de las primeras ciudades.',full:true},
           {label:'Dato reciente',value:'Hallazgos arqueológicos desafían la cronología establecida',full:true},
           {label:'Referencia',value:'National Geographic Historia. (2024). ¿Cuándo inventamos la rueda?', full:true},
         ]},
@@ -669,14 +708,14 @@ const DATA = {
           {label:'Culturas',value:'Sumerios (Mesopotamia) y Egipcios (Nilo)'},
           {label:'Soporte',value:'Tablillas de arcilla, papiro'},
           {label:'Área',value:'Tecnología comunicacional'},
-          {label:'Impacto',value:'Acumulación y transmisión del saber entre generaciones',full:true},
+          {label:'Impacto social',value:'Permitió administrar estados complejos, codificar leyes y acumular conocimiento entre generaciones.',full:true},
           {label:'Referencia',value:'National Geographic Historia. (2024). Así se originó la escritura en Mesopotamia.', full:true},
         ]},
       { year:'~600 a.C.', name:'Filosofía natural griega', brief:'Tales, Pitágoras, Heráclito — razón sobre mito',
         ficha:[
           {label:'Figuras',value:'Tales, Pitágoras, Heráclito, Aristóteles'},
           {label:'Área',value:'Filosofía natural / Epistemología'},
-          {label:'Aporte',value:'Primer intento sistemático de comprender la naturaleza con principios racionales'},
+          {label:'Impacto social',value:'Estableció la razón como herramienta de conocimiento y sentó las bases del pensamiento científico occidental.',full:true},
           {label:'Legado',value:'Nacimiento del método científico occidental',full:true},
           {label:'Referencia',value:'World History Encyclopedia. (2024). Filosofía griega.', full:true},
         ]},
@@ -685,8 +724,16 @@ const DATA = {
           {label:'Lugar',value:'Alejandría, Egipto'},
           {label:'Figuras',value:'Euclides, Arquímedes, Eratóstenes'},
           {label:'Área',value:'Matemática, mecánica, hidrostática'},
-          {label:'Legado',value:'Los Elementos de Euclides: referencia por más de 2000 años',full:true},
+          {label:'Impacto social',value:'Creó un modelo de institución académica internacional que perduró siglos e influyó en todas las culturas posteriores.',full:true},
           {label:'Referencia',value:'World History Encyclopedia. (2024). Arquímedes. — Kuhn (2004).', full:true},
+        ]},
+      { year:'~105 d.C.', name:'Invención del papel', brief:'Cai Lun, China — soporte del conocimiento',
+        ficha:[
+          {label:'Inventor',value:'Cai Lun (dinastía Han, China)'},
+          {label:'Material',value:'Fibras vegetales, corteza, trapos'},
+          {label:'Impacto social',value:'Al abaratar el soporte de la escritura, democratizó el acceso al conocimiento y preparó el camino para la imprenta.',full:true},
+          {label:'Llegada a Europa',value:'~Siglo X, vía mundo árabe',full:true},
+          {label:'Referencia',value:'Historia de los Materiales — UBU. (s.f.). El papel.', full:true},
         ]},
     ],
     biblio:[
@@ -694,31 +741,23 @@ const DATA = {
       {ref:'National Geographic Historia. (2024). <em>Así se originó la escritura en la antigua Mesopotamia.</em>',note:'Origen y función social de la escritura cuneiforme sumeria.'},
       {ref:'World History Encyclopedia. (2024). <em>Filosofía griega.</em>',note:'La filosofía griega como primer intento sistemático de comprender la naturaleza mediante la razón.'},
       {ref:'World History Encyclopedia. (2024). <em>Arquímedes.</em>',note:'Vida, principios y aplicaciones prácticas del pensamiento de Arquímedes.'},
+      {ref:'Historia de los Materiales — UBU. (s.f.). <em>El papel.</em>',note:'Proceso de fabricación y difusión del papel desde China hasta Europa.'},
     ],
   },
   media: {
-    tag:'Sala II', title:'La Edad Media', period:'105 d.C. — 1440', accent:'#2A9D8F',
+    tag:'Sala II', title:'La Edad Media', period:'476 d.C. — 1453', accent:'#2A9D8F',
     salaInfo:'Lejos de ser una época de oscurantismo, la Edad Media fue un período de crucial preservación y enriquecimiento del conocimiento. El mundo islámico mantuvo viva la llama científica mientras Europa se reorganizaba.',
     slides:[
-      {src:'imagen/imagen5.jpg',  year:'~105 d.C.', title:'Cai Lun — inventor del papel'},
       {src:'imagen/imagen6.jpg',  year:'~830 d.C.', title:'Casa de la Sabiduría, Bagdad'},
       {src:'imagen/imagen7.jpg',  year:'1440',      title:'La imprenta de Gutenberg'},
     ],
     hitos:[
-      { year:'~105 d.C.', name:'Invención del papel', brief:'Cai Lun, China — soporte del conocimiento',
-        ficha:[
-          {label:'Inventor',value:'Cai Lun (dinastía Han, China)'},
-          {label:'Material',value:'Fibras vegetales, corteza, trapos'},
-          {label:'Secreto',value:'El proceso se mantuvo en secreto durante siglos'},
-          {label:'Llegada a Europa',value:'~Siglo X, vía mundo árabe',full:true},
-          {label:'Referencia',value:'Historia de los Materiales — UBU. (s.f.). El papel.', full:true},
-        ]},
       { year:'~830 d.C.', name:'Casa de la Sabiduría', brief:'Bagdad — proyecto de alcance civilizatorio',
         ficha:[
           {label:'Lugar',value:'Bagdad (califato abasí)'},
           {label:'Período',value:'~830–1258 d.C.'},
           {label:'Figura clave',value:'Al-Juarismi (~780–850 d.C.)'},
-          {label:'Aporte',value:'Álgebra (al-jabr) y el concepto de algoritmo',full:true},
+          {label:'Impacto social',value:'Preservó el saber clásico y produjo avances en álgebra y astronomía que más tarde alimentarían la Revolución Científica europea.',full:true},
           {label:'Referencia',value:'Gordon-Conwell Theological Seminary. (s.f.). Baghdad\'s House of Wisdom.', full:true},
         ]},
       { year:'1440', name:'Imprenta de Gutenberg', brief:'Maguncia — reproducción masiva del conocimiento',
@@ -726,12 +765,11 @@ const DATA = {
           {label:'Inventor',value:'Johannes Gutenberg (~1400–1468)'},
           {label:'Lugar',value:'Maguncia, Alemania'},
           {label:'Primera obra',value:'Biblia de Gutenberg (~1455)'},
-          {label:'Impacto',value:'Miles a millones de libros. Condición para la Revolución Científica.',full:true},
+          {label:'Impacto social',value:'Rompió el monopolio de las élites sobre la cultura escrita, impulsó la alfabetización y creó las condiciones para la Revolución Científica.',full:true},
           {label:'Referencia',value:'National Geographic Historia. (2024). Gutenberg: el inventor que cambió el mundo.', full:true},
         ]},
     ],
     biblio:[
-      {ref:'Historia de los Materiales — UBU. (s.f.). <em>El papel.</em>',note:'Proceso de fabricación y difusión del papel desde China hasta Europa.'},
       {ref:'Gordon-Conwell Theological Seminary. (s.f.). <em>Baghdad\'s House of Wisdom.</em>',note:'La Casa de la Sabiduría como proyecto de transferencia cultural y generación de conocimiento.'},
       {ref:'National Geographic Historia. (2024). <em>Gutenberg: el inventor que cambió el mundo.</em>',note:'La imprenta como innovación que democratizó el conocimiento y transformó la sociedad europea.'},
     ],
@@ -749,8 +787,7 @@ const DATA = {
         ficha:[
           {label:'Figura',value:'Nicolás Copérnico (1473–1543)'},
           {label:'Obra',value:'De revolutionibus orbium coelestium'},
-          {label:'Dato',value:'Tardó décadas en publicar, consciente del impacto en la doctrina de la época'},
-          {label:'Impacto',value:'Primer cambio de paradigma de la ciencia moderna (Kuhn, 2004)',full:true},
+          {label:'Impacto social',value:'Desafió la autoridad religiosa sobre la descripción del cosmos e inició el primer cambio de paradigma de la ciencia moderna (Kuhn, 2004).',full:true},
           {label:'Referencia',value:'National Geographic Historia. (2024). Nicolás Copérnico y la revolución del cosmos.', full:true},
         ]},
       { year:'1609', name:'Telescopio y física experimental — Galileo', brief:'El ojo humano asistido por tecnología',
@@ -758,7 +795,7 @@ const DATA = {
           {label:'Figura',value:'Galileo Galilei (1564–1642)'},
           {label:'Instrumento',value:'Telescopio refractor mejorado'},
           {label:'Observaciones',value:'Lunas de Júpiter, fases de Venus, cráteres lunares'},
-          {label:'Método',value:'Experimento controlado + razonamiento matemático',full:true},
+          {label:'Impacto social',value:'Consolidó el método experimental y demostró que la tecnología puede ampliar las capacidades humanas de observación y comprensión del mundo.',full:true},
           {label:'Referencia',value:'World History Encyclopedia. (2024). El telescopio y la revolución científica.', full:true},
         ]},
       { year:'1687', name:'Principia Mathematica — Newton', brief:'Paradigma dominante por más de 200 años',
@@ -766,7 +803,7 @@ const DATA = {
           {label:'Figura',value:'Isaac Newton (1643–1727)'},
           {label:'Obra',value:'Philosophiæ Naturalis Principia Mathematica'},
           {label:'Área',value:'Mecánica, gravitación, cálculo diferencial'},
-          {label:'Legado',value:'Base del cálculo, la ingeniería moderna y la astronomía (Kuhn, 2004)',full:true},
+          {label:'Impacto social',value:'Proporcionó el marco matemático para la ingeniería civil, la navegación y la industria de los dos siglos siguientes; base directa de la Revolución Industrial.',full:true},
           {label:'Referencia',value:'National Geographic. (2024). Principia Mathematica: el legado de Newton.', full:true},
         ]},
     ],
@@ -793,7 +830,7 @@ const DATA = {
           {label:'Figura',value:'James Watt (1736–1819)'},
           {label:'Año de la patente',value:'1769'},
           {label:'Mejora clave',value:'Condensador separado + movimiento rotativo'},
-          {label:'Colaboración',value:'Trabajó con Matthew Boulton — primer modelo ingeniero-empresa'},
+          {label:'Impacto social',value:'Mecanizó la producción fabril, impulsó el ferrocarril y marcó el paso de una economía agraria a una industrial, con profundas consecuencias sociales y urbanas.',full:true},
           {label:'Referencia',value:'World History Encyclopedia. (2024). La máquina de vapor de Watt.', full:true},
         ]},
       { year:'1820–1831', name:'Electromagnetismo', brief:'Ørsted, Ampère y Faraday — base de la electricidad',
@@ -801,7 +838,7 @@ const DATA = {
           {label:'Figuras',value:'Ørsted, Ampère, Faraday, Maxwell'},
           {label:'Período',value:'1820–1873'},
           {label:'Área',value:'Electromagnetismo aplicado'},
-          {label:'Aplicaciones',value:'Motor eléctrico, generador, transformador',full:true},
+          {label:'Impacto social',value:'Hicieron posibles el motor eléctrico y el generador, tecnologías que electrificaron las ciudades, las fábricas y los hogares a lo largo del siglo XIX y XX.',full:true},
           {label:'Referencia',value:'Britannica. (2024). Electromagnetism.', full:true},
         ]},
       { year:'1876', name:'El teléfono — Bell', brief:'Comunicación a distancia en tiempo real',
@@ -809,7 +846,7 @@ const DATA = {
           {label:'Figura',value:'Alexander Graham Bell (1847–1922)'},
           {label:'Año',value:'1876 (patente)'},
           {label:'Dato',value:'Elisha Gray presentó su patente el mismo día — el progreso es frecuentemente paralelo'},
-          {label:'Área',value:'Telecomunicaciones',full:true},
+          {label:'Impacto social',value:'Revolucionó las comunicaciones personales y comerciales, acortando distancias y sentando las bases de las telecomunicaciones modernas.',full:true},
           {label:'Referencia',value:'Telefónica. (2024). 9 inventos tecnológicos que han cambiado el mundo.', full:true},
         ]},
       { year:'1895', name:'Rayos X y radiactividad', brief:'Röntgen y Curie — anomalías que abren nuevos campos',
@@ -817,7 +854,7 @@ const DATA = {
           {label:'Figuras',value:'Wilhelm Röntgen, Marie Curie'},
           {label:'Año',value:'1895 (rayos X), 1898 (radiactividad)'},
           {label:'Dato',value:'Curie acuñó el término "radiactividad" y fue la primera en ganar dos Nobel'},
-          {label:'Área',value:'Física, medicina diagnóstica, física nuclear',full:true},
+          {label:'Impacto social',value:'Transformaron la medicina diagnóstica y abrieron el camino a la física nuclear y a tratamientos médicos modernos.',full:true},
           {label:'Referencia',value:'LibreTexts Español. (s.f.). Rayos X y radiactividad.', full:true},
         ]},
       { year:'1903', name:'Primer vuelo motorizado — Wright', brief:'Kitty Hawk — ingeniería sin ciencia académica',
@@ -825,7 +862,7 @@ const DATA = {
           {label:'Figuras',value:'Orville y Wilbur Wright'},
           {label:'Fecha',value:'17 de diciembre de 1903'},
           {label:'Dato',value:'Eran mecánicos de bicicletas — el logro fue por experimentación sistemática'},
-          {label:'Duración / distancia',value:'12 segundos · 36 metros',full:true},
+          {label:'Impacto social',value:'Redujo las distancias entre continentes, impulsó el comercio global y tuvo un rol decisivo en los conflictos del siglo XX, acelerando también la exploración espacial.',full:true},
           {label:'Referencia',value:'NASA. (2023). 120 years ago: The first powered flight at Kitty Hawk.', full:true},
         ]},
     ],
@@ -853,7 +890,7 @@ const DATA = {
           {label:'Institución',value:'Universidad de Pensilvania'},
           {label:'Dimensiones',value:'167 m² · 27 toneladas · 18.000 tubos de vacío'},
           {label:'Velocidad',value:'5.000 sumas por segundo · 150 kW'},
-          {label:'Dato',value:'Fue diseñada originalmente para calcular tablas de tiro de artillería',full:true},
+          {label:'Impacto social',value:'Inauguró la era de la computación moderna, sentando las bases tecnológicas de todos los sistemas digitales actuales.',full:true},
           {label:'Referencia',value:'HP Tech Takes. (s.f.). Computer history: All about the ENIAC.', full:true},
         ]},
       { year:'1957', name:'Sputnik — era espacial', brief:'Pánico, admiración e inversión en ciencia',
@@ -861,7 +898,7 @@ const DATA = {
           {label:'Hito',value:'Sputnik 1 — primer satélite artificial'},
           {label:'País',value:'URSS'},
           {label:'Fecha',value:'4 de octubre de 1957'},
-          {label:'Impacto',value:'Provocó pánico en Occidente e impulsó enormes inversiones en educación científica',full:true},
+          {label:'Impacto social',value:'Aceleró la inversión pública en ciencia y educación en todo Occidente, siendo motor directo de la carrera espacial y de las tecnologías que derivaron de ella.',full:true},
           {label:'Referencia',value:'National Geographic. (2024). La carrera espacial, paso a paso.', full:true},
         ]},
       { year:'1969', name:'ARPANET — origen de Internet', brief:'El primer mensaje fue solo "lo"',
@@ -869,7 +906,7 @@ const DATA = {
           {label:'Promotor',value:'DARPA (Departamento de Defensa, EE.UU.)'},
           {label:'Primer nodo',value:'UCLA, Stanford, UCSB, Utah'},
           {label:'Dato',value:'El primer mensaje enviado fue "lo" (de "login") antes de que el sistema colapsara'},
-          {label:'Principio',value:'Red distribuida sin punto central de fallo',full:true},
+          {label:'Impacto social',value:'Estableció los principios técnicos de la red distribuida que daría origen a Internet y conectaría al mundo entero.',full:true},
           {label:'Referencia',value:'National Geographic América Latina. (2024). ¿Cuál es el origen de Internet?', full:true},
         ]},
       { year:'1991', name:'World Wide Web — Berners-Lee', brief:'Gratuita y libre por decisión de su creador',
@@ -877,7 +914,7 @@ const DATA = {
           {label:'Figura',value:'Tim Berners-Lee (1955–)'},
           {label:'Institución',value:'CERN, Ginebra'},
           {label:'Dato',value:'Rechazó patentar su invento para que pudiera crecer libremente'},
-          {label:'Distinción clave',value:'Web ≠ Internet. La Web es el sistema de páginas que corre sobre Internet.',full:true},
+          {label:'Impacto social',value:'Democratizó el acceso a la información a escala global y se convirtió en la plataforma sobre la que se construyó la economía digital.',full:true},
           {label:'Referencia',value:'CERN. (s.f.). A short history of the Web.', full:true},
         ]},
       { year:'2000s – hoy', name:'Redes sociales e IA generativa', brief:'Cambio de paradigma tecnológico (Kuhn, 2004)',
@@ -885,8 +922,8 @@ const DATA = {
           {label:'Hitos',value:'ChatGPT (2022), modelos multimodales (2023–)'},
           {label:'Área',value:'IA generativa · Ingeniería de sistemas'},
           {label:'Marco teórico',value:'Cambio de paradigma tecnológico en el sentido de Kuhn (2004)'},
-          {label:'Desafío central',value:'Responsabilidad ética frente al impacto social de la IA',full:true},
-          {label:'Referencia',value:'Vivelibre (2024); Kuhn, T. S. (2004); Concepto.de (2020).', full:true},
+          {label:'Impacto social',value:'Reconfiguraron la opinión pública y las relaciones interpersonales; la IA plantea profundas implicancias éticas y sociales aún en debate.',full:true},
+          {label:'Referencia',value:'Vivelibre (2024); Kuhn, T. S. (2004); Dataversity (s.f.).', full:true},
         ]},
     ],
     biblio:[
@@ -894,7 +931,7 @@ const DATA = {
       {ref:'National Geographic. (2024). <em>La carrera espacial, paso a paso.</em>',note:'El Sputnik y la carrera espacial como motor de inversión en ciencia y tecnología.'},
       {ref:'National Geographic América Latina. (2024). <em>¿Cuál es el origen de Internet?</em>',note:'El origen de ARPANET y el primer mensaje enviado a través de la red.'},
       {ref:'CERN. (s.f.). <em>A short history of the Web.</em>',note:'La decisión de Berners-Lee de no patentar la Web y su impacto en la democratización del conocimiento.'},
-      {ref:'Vivelibre. (2024). <em>Evolución de la tecnología.</em>',note:'La IA y el IoT como hitos de la aceleración tecnológica del siglo XXI.'},
+      {ref:'Dataversity. (s.f.). <em>A brief history of generative AI.</em>',note:'La IA generativa como hito de la aceleración tecnológica del siglo XXI.'},
       {ref:'Kuhn, T. S. (2004). <em>La estructura de las revoluciones científicas.</em> Fondo de Cultura Económica.',note:'La IA generativa como cambio de paradigma en el sentido kuhniano.'},
     ],
   },
